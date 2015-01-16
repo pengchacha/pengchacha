@@ -10,6 +10,8 @@ import tornado.ioloop
 # import torndb
 import os.path
 import controller.home
+import logging
+import loggingConfig
 
 tornado.options.define("port", default=8888, help="run the given port", type=int)
 
@@ -40,4 +42,5 @@ def main():
     tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == "__main__":
+    logging.getLogger("site").info("start")
     main()

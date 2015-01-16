@@ -2,4 +2,6 @@
 # -*-coding: utf-8 -*-
 __author__ = 'livvy'
 
-__all__ = ["controller", "lib"]
+__all__ = ["controller", "lib","loggingConfig","main"]
+
+import loggingConfig
