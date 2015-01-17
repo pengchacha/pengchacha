@@ -2,18 +2,80 @@
 <html>
 <head lang="zh">
     <meta charset="UTF-8">
-    <title></title>
-    {% block css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} 嘭嚓嚓 {% end %}</title>
+    {% block default_css %}
        <link rel="stylesheet" href="{{ static_url('bootstrap/css/bootstrap.min.css') }}">
+       <link rel="stylesheet" href="{{ static_url('flatui/css/flat-ui.min.css') }}">
+       <link rel="stylesheet" href="{{ static_url('site/css/common.css') }}">
+    {% end %}
+    {% block extra_css %}
     {% end %}
     <link rel="shortcut icon" href="{{ static_url('favicon.ico') }}">
+    {% block html5_extra %}
+      <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+      <!--[if lt IE 9]>
+        <script src="{{ static_url('flatui/js/vendor/html5shiv.js') }}"></script>
+        <script src="{{ static_url('flatui/js/vendor/respond.min.js') }}"></script>
+      <![endif]-->
+    {% end %}
 </head>
 <body>
-{% block body %}
-
+{% block default_header %}
+    <!-- Static navbar -->
+    <header class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <a class="navbar-brand" href="#">{% block site_name %}嘭嚓嚓{% end %}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">联系</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top</a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </header>
 {% end %}
-{% block javascript %}
+
+{% block content %}
+   <section class="container">
+
+   </section>
+{% end %}
+
+{% block footer %}
+   <footer class="footer">
+       <div class="container">
+          <p>&copy;2015 pengchacha.tec</p>
+       </div>
+   </footer><!-- Footer -->
+{% end %}
+{% block default_js %}
    <script type="text/javascript" src="{{ static_url('jquery/jquery-1.11.2.min.js') }}" ></script>
+{% end %}
+{% block extra_js %}
 {% end %}
 </body>
 </html>
