@@ -10,6 +10,7 @@ import tornado.ioloop
 import torndb
 import os.path
 import controller.home
+import controller.account
 import logging
 import loggingConfig
 
@@ -21,7 +22,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", controller.home.HomeHandler),
-
+            (r"/account/login",controller.account.LoginHandler)
         ]
         settings = dict(
             site_title=u"PengChaCha",

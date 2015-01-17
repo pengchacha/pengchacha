@@ -6,7 +6,6 @@
     <title>{% block title %} 嘭嚓嚓 {% end %}</title>
     {% block default_css %}
        <link rel="stylesheet" href="{{ static_url('bootstrap/css/bootstrap.min.css') }}">
-       <link rel="stylesheet" href="{{ static_url('flatui/css/flat-ui.min.css') }}">
        <link rel="stylesheet" href="{{ static_url('site/css/common.css') }}">
     {% end %}
     {% block extra_css %}
@@ -15,10 +14,9 @@
     {% block html5_extra %}
       <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
       <!--[if lt IE 9]>
-        <script src="{{ static_url('flatui/js/vendor/html5shiv.js') }}"></script>
-        <script src="{{ static_url('flatui/js/vendor/respond.min.js') }}"></script>
+
       <![endif]-->
-    {% end %}
+    {% end %} <!--end of block html5_extra -->
 </head>
 <body>
 {% block default_header %}
@@ -57,13 +55,13 @@
         </div><!--/.nav-collapse -->
       </div>
     </header>
-{% end %}
+{% end %} <!-- end of block default_header-->
 
 {% block content %}
    <section class="container">
 
    </section>
-{% end %}
+{% end %} <!-- end of block content-->
 
 {% block footer %}
    <footer class="footer">
