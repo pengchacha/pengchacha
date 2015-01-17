@@ -7,13 +7,14 @@ import tornado.options
 import tornado.options
 import tornado.httpserver
 import tornado.ioloop
-# import torndb
+import torndb
 import os.path
 import controller.home
 import logging
 import loggingConfig
 
-tornado.options.define("port", default=8888, help="run the given port", type=int)
+tornado.options.define("port", default=8888, help="run the given port",
+                       type=int)
 
 
 class Application(tornado.web.Application):
@@ -31,8 +32,9 @@ class Application(tornado.web.Application):
             login_url="/account/login",
             debug=True,
         )
-        tornado.web.Application.__init__(self,handlers, **settings)
-        # self.db = torndb.Connection(host=)
+        tornado.web.Application.__init__(self, handlers, **settings)
+        self.db = torndb.Connection(host='localhost', database='pengchacha',
+                                    user="root", password='livvy')
 
 
 def main():
@@ -41,6 +43,8 @@ def main():
     http_server.listen(tornado.options.options.port)
     tornado.ioloop.IOLoop.instance().start()
 
+
 if __name__ == "__main__":
     logging.getLogger("site").info("start")
     main()
+
