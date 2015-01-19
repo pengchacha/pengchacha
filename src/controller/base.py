@@ -4,6 +4,7 @@ __author__ = 'livvy'
 
 import tornado.web
 
+__all__ = ['BaseHandler']
 
 class BaseHandler(tornado.web.RequestHandler):
     def data_received(self, chunk):

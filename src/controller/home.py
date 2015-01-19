@@ -5,6 +5,8 @@ __author__ = 'livvy'
 import base
 import logging
 
+__all__ = ['HomeHandler']
+
 
 class HomeHandler(base.BaseHandler):
     def data_received(self, chunk):
