@@ -14,6 +14,9 @@ import controller.account
 import logging
 import loggingConfig
 
+__all__ = ['Application']
+
+
 tornado.options.define("port", default=8888, help="run the given port",
                        type=int)
 
@@ -22,7 +25,9 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", controller.home.HomeHandler),
-            (r"/account/login",controller.account.LoginHandler)
+            (r"/account/login", controller.account.LoginHandler),
+            (r"/account/logout", controller.account.LogoutHandler),
+            (r"/account/register", controller.account.RegisterHandler)
         ]
         settings = dict(
             site_title=u"PengChaCha",
