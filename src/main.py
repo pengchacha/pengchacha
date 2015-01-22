@@ -12,10 +12,10 @@ import os.path
 import controller.home
 import controller.account
 import logging
+import config
 import loggingConfig
 
 __all__ = ['Application']
-
 
 tornado.options.define("port", default=8888, help="run the given port",
                        type=int)
@@ -39,8 +39,13 @@ class Application(tornado.web.Application):
             debug=True,
         )
         tornado.web.Application.__init__(self, handlers, **settings)
-        self.db = torndb.Connection(host='localhost', database='pengchacha',
-                                    user="root", password='livvy')
+        self.db = torndb.Connection(
+            host=config.SiteConfig.get('database',
+                                       'host') + ':' + config.SiteConfig.get(
+                'database', 'port'),
+            database=config.SiteConfig.get('database', 'db'),
+            user=config.SiteConfig.get('database', 'user'),
+            password=config.SiteConfig.get('database', 'password'))
 
 
 def main():
