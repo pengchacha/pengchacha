@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head lang="zh">
+  <meta charset="utf-8">
+  <title>{% block title %} 嘭嚓嚓 {% end %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	{% block default_css %}
+       <link href="{{static_url("bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
+	   <link href="{{static_url("site/css/style.css")}}" rel="stylesheet">
+	   <link href="{{static_url("bootstrap/Cikonss-master/cikonss.css")}}" rel="stylesheet">
+    {% end %}
+    {% block extra_css %}
+    {% end %}
+	
+	{% block html5_extra %}
+      <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+      <!--[if lt IE 9]>
+
+      <![endif]-->
+    {% end %}
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="{{static_url("img/favicon.png")}}">
+  
+	<script type="text/javascript" src="{{static_url("jquery/jquery-1.11.2.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("bootstrap/js/bootstrap.min.js")}}"></script>
+	<script type="text/javascript" src="{{static_url("bootstrap/js/scripts.js")}}"></script>
+	{% block extra_js %}
+	{% end %}
+</head>
+
+
+<body>
+<style>
+.view{
+	margin-top:30px;
+}
+
+</style>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class = view>
+				{% block default_nav %}
+				<nav class="navbar navbar-default navbar-inverse" role="navigation">
+					<div class="navbar-header">
+						 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">LOGO</a>
+					</div>
+					
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active">
+								<a href="#">首页</a>
+							</li>
+							<li>
+								<a id="modal-806180" href="#modal-container-806180" role="button" class="btn" data-toggle="modal">求教</a>
+							</li>
+							<li>
+								<a href="#">基友</a>
+							</li>
+							<li>
+								<a href="#">排行榜</a>
+							</li>
+							<li>
+								<a href="#">知识图谱</a>
+							</li>
+							<li class="dropdown">
+								 <a href="#" class="dropdown-toggle" data-toggle="dropdown">啦啦啦<strong class="caret"></strong></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#">我在学习的课程</a>
+									</li>
+									<li>
+										<a href="#">我请求的课程</a>
+									</li>
+									<li>
+										<a href="#">我关注的课程</a>
+									</li>
+									<li class="divider">
+									</li>
+									<li>
+										<a href="#">Separated link</a>
+									</li>
+									<li class="divider">
+									</li>
+									<li>
+										<a href="#">One more separated link</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control">
+							</div> <button type="submit" class="btn btn-default">搜索</button>
+						</form>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#">啦啦</a>
+							</li>
+							<li class="dropdown">
+								 <a href="#" class="dropdown-toggle" data-toggle="dropdown">张洋<strong class="caret"></strong></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#">我的主页</a>
+									</li>
+									<li>
+										<a href="#">彭擦擦</a>
+									</li>
+									<li>
+										<a href="#">彭查查</a>
+									</li>
+									<li class="divider">
+									</li>
+									<li>
+										<a href="#">Separated link</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					
+				</nav>
+				{% end %} <!-- end of block default_nav-->
+			</div>
+			<div class = "listZ">
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<div class="list-group">
+							{% block content %}{% end %}
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="row clearfix">
+		{% block footer %}
+		   <footer class="footer">
+			   <div class="container">
+				  <p>&copy;2015 pengchacha.tec</p>
+			   </div>
+		   </footer><!-- Footer -->
+		{% end %}
+	</div>
+	
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			 
+			
+			<div class="modal fade" id="modal-container-806180" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title" id="myModalLabel">
+								求教程。。。
+							</h4>
+						</div>
+						<form role="form">
+							<div class="modal-body">
+								
+								   <div class="form-group">
+									  <label for="name">教程名称：</label>
+									  <input type="text" class="form-control" id="name" 
+										 placeholder="请输入教程名称">
+								   </div>
+								   
+								   <div class="form-group">
+									  <label for="name">教程描述：</label>
+									  <textarea class="form-control" rows="3" placeholder="请输入教程描述"></textarea>
+								   </div>
+								   
+								   
+								
+							</div>
+							<div class="modal-footer">
+								 <button type="submit" class="btn btn-default">提交</button>
+							</div>
+						</form>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+
+</div>
+	
+</div>
+</body>
+</html>
+
