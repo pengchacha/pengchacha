@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
-<head lang="zh">
+<html lang="zh">
+<head >
   <meta charset="utf-8">
   <title>{% block title %} 嘭嚓嚓 {% end %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,12 @@
   <meta name="author" content="">
 
 	{% block default_css %}
-       <link href="{{static_url("bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
-	   <link href="{{static_url("site/css/style.css")}}" rel="stylesheet">
-	   <link href="{{static_url("bootstrap/Cikonss-master/cikonss.css")}}" rel="stylesheet">
+       <link href="{{static_url('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+	   <link href="{{static_url('site/css/style.css')}}" rel="stylesheet">
+	   <link href="{{static_url('bootstrap/Cikonss-master/cikonss.css')}}" rel="stylesheet">
+       <link rel="stylesheet" href="{{ static_url('site/css/common.css') }}">
     {% end %}
+
     {% block extra_css %}
     {% end %}
 	
@@ -26,23 +28,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="{{static_url("img/favicon.png")}}">
-  
-	<script type="text/javascript" src="{{static_url("jquery/jquery-1.11.2.min.js")}}"></script>
-	<script type="text/javascript" src="{{static_url("bootstrap/js/bootstrap.min.js")}}"></script>
-	<script type="text/javascript" src="{{static_url("bootstrap/js/scripts.js")}}"></script>
-	{% block extra_js %}
-	{% end %}
+  <link rel="shortcut icon" href="{{static_url('img/favicon.png')}}">
 </head>
-
-
 <body>
-<style>
-.view{
-	margin-top:30px;
-}
-
-</style>
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
@@ -133,7 +121,7 @@
 				<div class="row clearfix">
 					<div class="col-md-12 column">
 						<div class="list-group">
-							{% block content %}{% end %}
+							{% block content %} {% end %}
 						</div>
 					</div>
 				</div>
@@ -141,16 +129,6 @@
 			
 		</div>
 	</div>
-	<div class="row clearfix">
-		{% block footer %}
-		   <footer class="footer">
-			   <div class="container">
-				  <p>&copy;2015 pengchacha.tec</p>
-			   </div>
-		   </footer><!-- Footer -->
-		{% end %}
-	</div>
-	
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			 
@@ -194,8 +172,25 @@
 		</div>
 
 </div>
-	
 </div>
+<div class="container">
+    <div class="row clearfix">
+    {% block footer %}
+		   <footer class="footer">
+			   <div class="container">
+				  <p>&copy;2015 pengchacha.tec</p>
+			   </div>
+		   </footer><!-- Footer -->
+    {% end %}
+    </div>
+</div>
+{% block default_js %}
+  <script type="text/javascript" src="{{static_url('jquery/jquery-1.11.2.min.js')}}"></script>
+  <script type="text/javascript" src="{{static_url('bootstrap/js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{static_url('bootstrap/js/scripts.js')}}"></script>
+{% end %}
+{% block extra_js %}
+{% end %}
 </body>
 </html>
 
