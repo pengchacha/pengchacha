@@ -11,6 +11,7 @@ import torndb
 import os.path
 import controller.home
 import controller.account
+import controller.question
 import logging
 import config
 import loggingConfig
@@ -27,7 +28,9 @@ class Application(tornado.web.Application):
             (r"/", controller.home.HomeHandler),
             (r"/account/login", controller.account.LoginHandler),
             (r"/account/logout", controller.account.LogoutHandler),
-            (r"/account/register", controller.account.RegisterHandler)
+            (r"/account/register", controller.account.RegisterHandler),
+            (r"/question/ask", controller.question.AskHandler),
+            (r"/question/show/([\d]+)", controller.question.ShowHandler)
         ]
         settings = dict(
             site_title=u"PengChaCha",
